@@ -12,10 +12,10 @@ Spring Tool Suite: The project was developed using STS as the integrated develop
 How to Run Locally:
 Clone the repository:
 
-git clone https://github.com/Dheeraj8601/BAKE-STUDIO.git
+git clone https://github.com/sangeethapendala/S-Bakers.git  <br>
 cd S-Bakers
 Open the project in Spring Tool Suite.<br>
 
-Run the BakeryStoreApplication class.<br>
+Run the S-BakersApplication class.<br>
 
 Access the application in your web browser at http://localhost:8080.
