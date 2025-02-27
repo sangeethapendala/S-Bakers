@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Information Form</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+.form-control{
+width:300px;
+}
+</style>
+<body style="background-color: black;">
+
+<div class="container mt-5" style="margin-left:400px;color:white;">
+    <h2>Customer Information Form</h2>
+    <form id="customerForm">
+        <div class="form-group">
+            <label for="fullname">Full Name</label>
+            <input type="text" class="form-control" id="fullname" placeholder="Enter full name" required>
+        </div>
+        <div class="form-group">
+            <label for="mobilenumber">Mobile Number</label>
+            <input type="tel" class="form-control" id="mobilenumber" placeholder="Enter mobile number" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" class="form-control" id="address" placeholder="Enter address" required>
+        </div>
+       <button type="submit" class="btn btn-primary">Submit</button> 
+    </form>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="infoModalLabel">Thank You For Your Order!</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="popupContent">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    document.getElementById('customerForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+
+        // Get form values
+        const fullname = document.getElementById('fullname').value;
+        const mobilenumber = document.getElementById('mobilenumber').value;
+        const email = document.getElementById('email').value;
+        const address = document.getElementById('address').value;
+
+        // Create content for the modal
+        const popupContent = `
+            <p><strong>Full Name:</strong> ${fullname}</p>
+            <p><strong>Mobile Number:</strong> ${mobilenumber}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Address:</strong> ${address}</p>
+        `;
+
+        // Display the modal with the entered information
+        document.getElementById('popupContent').innerHTML = popupContent;
+        $('#infoModal').modal('show');
+    });
+</script>
+
+</body>
+</html>
